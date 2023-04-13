@@ -1,5 +1,8 @@
 ## COSC 320 - Analysis of Algorithms. 
 
+### Breif Demo 
+https://drive.google.com/file/d/1RqyXuC0wl0UWHtrbWFh0gpg2pLHJHJ-O/view?usp=sharing
+
 ### Milestone 1
 We used a naïve approach to read in the dataset and replace abbreviation with the keywords. With this following pseudocode: 
 `f(D, A) = D' for i = 1 to n:  for j = 1 to m:  if d[i] = a[j]:  d[i] = b[j]  break  D'.append(d[i]) return D' `
