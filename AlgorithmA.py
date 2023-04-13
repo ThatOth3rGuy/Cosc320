@@ -1,5 +1,7 @@
 import csv
 import os
+import time
+import matplotlib.pyplot as plt
 
 # Define the path to the AcronymsFile.csv file
 acronym_file = 'D:/3rd year/COSC 320/Cosc320-master/Cosc320-master/AcronymsFile.csv'
@@ -32,7 +34,7 @@ def replace_acronyms(text, acronyms):
     replaced_words = []
     for word in words:
         replaced_word = word
-        for acronym, full_form in acronyms.items():
+        for acronym, full_form in acronyms.items():   #the naive algorithm. With the nested for loops.
             if acronym == word:
                 replaced_word = full_form
         replaced_words.append(replaced_word)
@@ -53,14 +55,59 @@ def process_csv_file(input_file_path, output_file_path, acronyms):
             row['content'] = replaced_content
             writer.writerow(row)
 
-# Define a function to process all CSV files in the AppReviews folder
-def process_all_csv_files(acronyms):
+# Define a function to process a certain number of CSV files in the AppReviews folder and record the runtime
+def process_n_csv_files(acronyms, n):
+    total_time = 0
+    i = 0
     for root, dirs, files in os.walk(app_reviews_folder):
         for file in files:
-            if file.endswith('.csv'):
-                input_file_path = os.path.join(root, file)
-                output_file_path = os.path.join(root, 'new_' + file)
-                process_csv_file(input_file_path, output_file_path, acronyms)
+            if i >= n or not file.endswith('.csv'):
+                break
+            input_file_path = os.path.join(root, file)
+            output_file_path = os.path.join(root, 'new_' + file)
+            start_time = time.time()
+            process_csv_file(input_file_path, output_file_path, acronyms)
+            end_time = time.time()
+            total_time += end_time - start_time
+            i += 1
+    return total_time
 
-# Call the process_all_csv_files function to replace acronyms in all CSV files in the AppReviews folder
-process_all_csv_files(acronyms);
+# Call the process_n_csv_files function to replace acronyms in a certain number of CSV files in the AppReviews folder and record the runtime
+total_time = process_n_csv_files(acronyms, 10)
+
+# Plot a graph to show the total runtime
+plt.plot([1], [total_time], marker='o')
+plt.title('Total runtime to replace acronyms in 10 CSV files')
+plt.xlabel('Files processed')
+plt.ylabel('Total runtime (seconds)')
+plt.show()
+
+'''Define a function to process a certain number of CSV files in the AppReviews folder and record the runtime
+def process_n_csv_files(acronyms, n):
+    times = []
+    i = 0
+    for root, dirs, files in os.walk(app_reviews_folder):
+        for file in files:
+            if i >= n or not file.endswith('.csv'):
+                break
+            input_file_path = os.path.join(root, file)
+            output_file_path = os.path.join(root, 'new_' + file)
+            start_time = time.time()
+            process_csv_file(input_file_path, output_file_path, acronyms)
+            end_time = time.time()
+            times.append(end_time - start_time)
+            i += 1
+    return times
+
+# Call the process_n_csv_files function to replace acronyms in a certain number of CSV files in the AppReviews folder and record the runtime
+times = process_n_csv_files(acronyms, 10)
+
+# Plot a graph to show the
+plt.bar(range(len(times)), times)
+plt.title('Runtime to replace acronyms in CSV files')
+plt.xlabel('File number')
+plt.ylabel('Runtime (seconds)')
+plt.show()'''
+
+
+
