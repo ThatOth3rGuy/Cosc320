@@ -12,3 +12,19 @@ In Milestone 3: We compiled sample files in a single csv formatted document, as 
 
 In the final Milestone, we are testing our improved algorithm – hashMap with a sample csv file and using the dictionary in our code to lookup keywords.
 
+### Running Time for Algorithm A: {Plot here}
+
+Space complexity: 
+
+
+Time Complexity:
+
+
+
+### Running Time for Algorithm B: {Plot here}
+
+
+Space complexity:
+
+
+Time Complexity:
