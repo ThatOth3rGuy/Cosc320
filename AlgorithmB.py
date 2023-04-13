@@ -10,14 +10,17 @@ app_reviews_folder = 'AppReviews'
 # Read the AcronymsFile.csv file and generate the acronym dictionary
 def read_acronym_file(acronym_file):
     acronyms = {}
-    with open(acronym_file, 'r') as f:
-        reader = csv.reader(f)
+    with open(acronym_file, 'r', encoding='utf-8-sig',) as f:
+        reader = csv.reader(f,skipinitialspace=True)
         for row in reader:
-            if len(row) >= 1 and ' - ' in row[0]:
-                acronym_full_form = row[0].split(' - ')
-                if len(acronym_full_form) == 2:
-                    acronym, full_form = acronym_full_form
-                    acronyms[acronym] = full_form
+            # if len(row) >= 1 and ',' in row[0]:
+            
+            if len(row) >= 1:
+                 acronym_full_form = [row[0],row[1]]
+                 print(acronym_full_form)
+                 if len(acronym_full_form) == 2 :
+                     acronym, full_form = acronym_full_form
+                     acronyms[acronym] = full_form
     return acronyms
 
 
@@ -37,7 +40,7 @@ def replace_acronyms(text, acronyms):
 
 # Define a function to process a single CSV file
 def process_csv_file(input_file_path, output_file_path, acronyms):
-    with open(input_file_path, 'r') as input_file, open(output_file_path, 'w') as output_file:
+    with open(input_file_path, 'r',encoding="utf-8") as input_file, open(output_file_path, 'w',encoding="utf-8") as output_file:
         reader = csv.DictReader(input_file)
         writer = csv.DictWriter(output_file, fieldnames=reader.fieldnames)
         writer.writeheader()
@@ -59,4 +62,4 @@ def process_all_csv_files(acronyms):
                 process_csv_file(input_file_path, output_file_path, acronyms)
 
 # Call the process_all_csv_files function to replace acronyms in all CSV files in the AppReviews folder
-process_all_csv_files(acronyms)
+process_all_csv_files(acronyms);
