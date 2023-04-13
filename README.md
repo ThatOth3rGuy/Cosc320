@@ -15,17 +15,14 @@ We tested our improved algorithm which uses a hashMap. `Acronyms.csv` acts as th
 
 ### Running Time for Algorithm A: {Plot here}
 
-Space complexity: 
+Time complexity: The time complexity of this algorithm would be O(N*M) where N is the number of words in the reviews and M is the number of acronyms in the AcronymsFile.csv
 
-
-Time Complexity:
-
-
+Space Complexity: The space complexity of this code would be O(N), since we are storing the expanded_text list which is proportional to the length of the input text.
 
 ### Running Time for Algorithm B: {Plot here}
 
 
-Space complexity:
+Time complexity:The time complexity of function `read_acronym_file` is O(n) where n is the number of rows in the `AcronymsFile.csv` file. For `replace_acronyms` function it is O(m) where m is the number of words in the input string. `process_csv_file` function is O(km) where k is the number of rows in the CSV file and m is the maximum number of words in a row that need to be replaced, and the time complexity of `process_all_csv_files` function is O(nkm) where n is the number of CSV files in the AppReviews folder and k and m are as defined above.
 
+Space Complexity:The space complexity of this code is O(n) where n is the number of rows in the AcronymsFile.csv file as the acronym dictionary is stored in memory
 
-Time Complexity:
