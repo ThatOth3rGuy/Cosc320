@@ -22,7 +22,7 @@ def algorithmA(file,list):
     df[1] = expanded_text
 
     df.to_csv(output_file, header=False, index=False) 
-    return df
+    return df.to
 
 def testA():
     i = 0
