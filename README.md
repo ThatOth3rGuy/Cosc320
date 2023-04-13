@@ -1,8 +1,5 @@
 ## COSC 320 - Analysis of Algorithms. 
 
-### Breif Demo 
-https://drive.google.com/file/d/1RqyXuC0wl0UWHtrbWFh0gpg2pLHJHJ-O/view?usp=sharing
-
 ### Milestone 1
 We used a naïve approach to read in the dataset and replace abbreviation with the keywords. With this following pseudocode: 
 `f(D, A) = D' for i = 1 to n:  for j = 1 to m:  if d[i] = a[j]:  d[i] = b[j]  break  D'.append(d[i]) return D' `
@@ -29,3 +26,14 @@ Time complexity:The time complexity of function `read_acronym_file` is O(n) wher
 
 Space Complexity:The space complexity of this code is O(n) where n is the number of rows in the AcronymsFile.csv file as the acronym dictionary is stored in memory
 
+
+### Unexpect edge cases: 
+- Misinterpreting certain short word such as "it" as an abbreviation and replacing that. Similar to autocorrect.
+- Matching the formatting exactly, is a challenge. We have handled null-exceptions or invalid input exceptions still.
+
+### Task Contributions: 
+- Implementation- with graph functionality: Shreya, Brendan
+- Tracking execution time through the time module: Shreya, Brendan, Shreyasi
+- Creating and editing the readme.md report: Shreya, Shreyasi, Brendan.
+- Unexpected edge cases - Shreya, Brendan, Shreyasi
+- Video recording: Shreyasi
