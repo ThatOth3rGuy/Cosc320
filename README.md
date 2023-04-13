@@ -27,7 +27,7 @@ Time complexity:The time complexity of function `read_acronym_file` is O(n) wher
 Space Complexity:The space complexity of this code is O(n) where n is the number of rows in the AcronymsFile.csv file as the acronym dictionary is stored in memory
 
 
-### Unexpect edge cases: 
+### Unexpected edge cases: 
 - Misinterpreting certain short word such as "it" as an abbreviation and replacing that. Similar to autocorrect.
 - Matching the formatting exactly, is a challenge. We have handled null-exceptions or invalid input exceptions still.
 
