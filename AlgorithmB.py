@@ -1,5 +1,6 @@
 import csv
 import os
+import time
 
 # Define the path to the AcronymsFile.csv file
 acronym_file = 'AcronymsFile.csv'
@@ -44,6 +45,8 @@ def process_csv_file(input_file_path, output_file_path, acronyms):
         reader = csv.DictReader(input_file)
         writer = csv.DictWriter(output_file, fieldnames=reader.fieldnames)
         writer.writeheader()
+        start_time = time.time()
+
         for row in reader:
             content = row['content']
             replaced_content = replace_acronyms(content, acronyms)
@@ -51,6 +54,9 @@ def process_csv_file(input_file_path, output_file_path, acronyms):
                 print(f"Replaced acronyms in content: {content} -> {replaced_content}")
             row['content'] = replaced_content
             writer.writerow(row)
+            
+        elapsed_time = time.time() - start_time
+        print(f"Processed file {input_file_path} in {elapsed_time:.3f} seconds")
 
 # Define a function to process all CSV files in the AppReviews folder
 def process_all_csv_files(acronyms):
@@ -58,7 +64,7 @@ def process_all_csv_files(acronyms):
         for file in files:
             if file.endswith('.csv'):
                 input_file_path = os.path.join(root, file)
-                output_file_path = os.path.join(root, 'new_' + file)
+                output_file_path = os.path.join(os.path.abspath("Test"), 'new_' + file)
                 process_csv_file(input_file_path, output_file_path, acronyms)
 
 # Call the process_all_csv_files function to replace acronyms in all CSV files in the AppReviews folder
