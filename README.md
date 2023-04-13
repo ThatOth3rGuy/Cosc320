@@ -10,7 +10,8 @@ In Milestone 2 we implemented a hash table as an improvement upon the naïve alg
 
 In Milestone 3: We compiled sample files in a single csv formatted document, as the input file and performed graphical analysis on the runtime of our algorithms. We utilised the python’s Pandas package to set the data frames, and matplotlib.pyplot package to generate the graph results.
 
-In the final Milestone, we are testing our improved algorithm – hashMap with a sample csv file and using the dictionary in our code to lookup keywords.
+In the final Milestone, we are testing our improved algorithm – hashMap with a sample csv file and using the dictionary acronyms-file.csv in our code to lookup keywords.
+We are implenting both algorithms and comparing the runtimes for each.
 
 ### Running Time for Algorithm A: {Plot here}
 
