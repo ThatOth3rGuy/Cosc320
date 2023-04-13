@@ -1,6 +1,6 @@
 # Final Milestone: 
 
-### Summary ###:  
+### Summary:  
 
 In Milestone 1, we used a naïve approach to read in the dataset and replace abbreviation with the keywords. With this following pseudocode: 
  
